@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开元体育 · 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background: #f4f9fc;
+      color: #1e2b3a;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero 区 */
+    .hero {
+      background: linear-gradient(145deg, #d5f0f5 0%, #b2dfdb 100%);
+      border-radius: 32px;
+      padding: 48px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 24px rgba(0, 128, 128, 0.08);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0a3b42;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto 20px;
+      color: #1e4a53;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #0e7c7b;
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* 网格卡片 */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 960px) {
+      .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 12px rgba(0, 80, 80, 0.04);
+      transition: transform 0.15s, box-shadow 0.2s;
+      border: 1px solid #e3f0eb;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 100, 100, 0.08);
+      border-color: #bbdcd6;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #116466;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h3::before {
+      content: "◆";
+      font-size: 1rem;
+      color: #2b9a9a;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2c4050;
+    }
+    .card .tag {
+      display: inline-block;
+      background: #dff2ef;
+      color: #116466;
+      font-size: 0.75rem;
+      padding: 2px 12px;
+      border-radius: 30px;
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    /* 使用场景块 */
+    .scene {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 28px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(0, 80, 80, 0.04);
+      border: 1px solid #e3f0eb;
+    }
+    .scene h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0b4f50;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #b7dfda;
+      display: inline-block;
+    }
+    .scene ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      margin-top: 8px;
+    }
+    .scene li {
+      background: #eaf6f3;
+      padding: 8px 18px 8px 22px;
+      border-radius: 40px;
+      font-size: 0.92rem;
+      position: relative;
+      color: #1a4d4d;
+    }
+    .scene li::before {
+      content: "●";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      font-size: 0.6rem;
+      color: #2b9a9a;
+    }
+
+    /* 可信说明/提示 */
+    .notice {
+      background: #e2f0ee;
+      border-left: 6px solid #1d8a7a;
+      border-radius: 20px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      color: #1b3b3e;
+    }
+    .notice h4 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #0c5c5a;
+    }
+    .notice p {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .notice a {
+      color: #0b6b68;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #8fbfb8;
+      font-weight: 500;
+    }
+    .notice a:hover {
+      color: #043f3d;
+    }
+
+    /* FAQ 简洁摘要 */
+    .faq-mini {
+      background: white;
+      border-radius: 24px;
+      padding: 28px 24px;
+      margin-bottom: 40px;
+      border: 1px solid #dfece8;
+    }
+    .faq-mini h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0e5f5e;
+      margin-bottom: 20px;
+    }
+    .faq-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #e2efea;
+    }
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+    .faq-item strong {
+      color: #1b6d6b;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #2d4850;
+    }
+    .faq-item .q-icon {
+      color: #249b90;
+      margin-right: 6px;
+    }
+
+    /* 页脚 */
+    .footer {
+      text-align: center;
+      padding: 28px 0 16px;
+      font-size: 0.85rem;
+      color: #5d787a;
+      border-top: 1px solid #d2e4df;
+    }
+    .footer a {
+      color: #0f6f6a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 按钮（辅助，非链接） */
+    .btn-mock {
+      display: inline-block;
+      background: #17807c;
+      color: white;
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>开元体育 · 产品说明</h1>
+      <p>一个聚焦运动与活力的信息站点，从日常锻炼到赛事解读，带来有温度的体育内容。这里没有浮夸的口号，只有朴素的运动观察和实用建议。</p>
+      <span class="badge">⚡ 可靠 · 接地气</span>
+    </div>
+
+    <!-- 亮点卡片网格 -->
+    <div class="grid">
+      <div class="card">
+        <h3>运动摘要</h3>
+        <p>每周围绕跑步、健身、球类等热门项目，整理简洁的要点与数据，帮你快速把握趋势，不必在海量信息中迷失。</p>
+        <span class="tag">每周更新</span>
+      </div>
+      <div class="card">
+        <h3>实用亮点</h3>
+        <p>不堆砌术语，只提炼真正对运动爱好者有帮助的技巧、装备选择与恢复知识。每一篇都经过编辑筛选。</p>
+        <span class="tag">经验向</span>
+      </div>
+      <div class="card">
+        <h3>使用建议</h3>
+        <p>无论是新手还是老手，都能找到适合的阅读节奏：快速浏览摘要，或深入单篇分析，按你的兴趣来。</p>
+        <span class="tag">灵活阅读</span>
+      </div>
+      <div class="card">
+        <h3>克制的可信说明</h3>
+        <p>内容基于公开资料与运动科学常识撰写，不夸大效果，不制造焦虑。如果你对某篇内容有疑问，欢迎通过站点反馈。</p>
+        <span class="tag">实事求是</span>
+      </div>
+      <div class="card">
+        <h3>移动端友好</h3>
+        <p>页面针对手机与平板做了适配，卡片布局、字体大小、按钮间距都经过调整，随时随地都能舒适浏览。</p>
+        <span class="tag">响应式</span>
+      </div>
+      <div class="card">
+        <h3>社区氛围</h3>
+        <p>鼓励理性讨论，不追求流量。每一个分享都基于真实的运动体验，希望成为你运动路上的参考角落。</p>
+        <span class="tag">真诚分享</span>
+      </div>
+    </div>
+
+    <!-- 使用场景 -->
+    <div class="scene">
+      <h2>常见使用场景</h2>
+      <ul>
+        <li>晨跑前快速浏览当周运动摘要</li>
+        <li>挑选跑鞋或训练装备时翻阅经验帖</li>
+        <li>运动后恢复期的拉伸与营养参考</li>
+        <li>关注球类赛事的基础分析与观点</li>
+        <li>寻找适合初学者的训练思路</li>
+      </ul>
+      <div style="margin-top: 20px; font-size: 0.9rem; color: #3a6260;">
+        <span class="btn-mock">📌 按需查阅</span>
+      </div>
+    </div>
+
+    <!-- 可信说明 + 链接自然嵌入 -->
+    <div class="notice">
+      <h4>关于本站的可信说明</h4>
+      <p>「开元体育」是一个非商业的个人兴趣站点，内容由运动爱好者整理，力求客观、准确。所有信息仅供参考，不构成专业医疗或训练建议。如有任何疑问，欢迎通过站内渠道交流。</p>
+      <p>如果你对运动内容感兴趣，可以时常来 <a href="https://chinese-kaiyuansport.com">开元体育</a> 看看——这里没有营销话术，只有实实在在的运动笔记和观点。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h2>你可能想了解的 · 简短回答</h2>
+      <div class="faq-item">
+        <strong><span class="q-icon">❓</span> 网站内容多久更新一次？</strong>
+        <p>通常每周更新 2～3 篇，涵盖摘要、运动技巧与赛事简评。特殊时期可能调整频率。</p>
+      </div>
+      <div class="faq-item">
+        <strong><span class="q-icon">❓</span> 内容适合运动新手吗？</strong>
+        <p>适合。大部分文章从基础出发，同时也会提供进阶视角，你可以按需选择。</p>
+      </div>
+      <div class="faq-item">
+        <strong><span class="q-icon">❓</span> 是否有付费内容或广告？</strong>
+        <p>目前完全没有广告或付费墙。保持纯粹的信息分享，未来也不会改变这一原则。</p>
+      </div>
+      <div class="faq-item">
+        <strong><span class="q-icon">❓</span> 我可以转载或分享文章吗？</strong>
+        <p>欢迎在保留出处的前提下分享。如果用于商业用途，建议先联系我们获得许可。</p>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+      <p>内容仅供参考，不构成任何专业建议。</p>
+      <p style="margin-top: 6px;">
+        <a href="https://chinese-kaiyuansport.com">开元体育</a> · 2025
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
